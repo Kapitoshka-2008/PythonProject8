@@ -26,17 +26,17 @@ def test_category_initialization(sample_category, sample_product):
 
 
 def test_category_count():
-    # Reset counts
+    # Сбрасываем счетчики перед тестом
     Category.category_count = 0
     Category.product_count = 0
     
-    # Create test products
+    # Создаем тестовые продукты
     product1 = Product("Product 1", "Desc 1", 100.0, 5)
     product2 = Product("Product 2", "Desc 2", 200.0, 3)
     
-    # Create categories
+    # Создаем категории
     category1 = Category("Category 1", "Desc 1", [product1])
     category2 = Category("Category 2", "Desc 2", [product1, product2])
     
     assert Category.category_count == 2
-    assert Category.product_count == 3  # Total unique products 
+    assert Category.product_count == 3  # Общее количество продуктов в категориях (1 в первой + 2 во второй) 
